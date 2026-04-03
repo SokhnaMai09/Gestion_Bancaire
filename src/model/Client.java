@@ -36,4 +36,8 @@ public class Client {
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f358e15a0592a232b2535a583158cdf4e017f841

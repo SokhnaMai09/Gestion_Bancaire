@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> f358e15a0592a232b2535a583158cdf4e017f841
 import dao.ClientDAO;
 import model.Client;
 
@@ -10,10 +14,17 @@ public class Main {
         // ===== 1. CREATION CLIENT =====
         Client client = new Client(
                 0,
+<<<<<<< HEAD
                 "Sene",
                 "Sokhna Maimouna",
                 "703047016",
                 "sokhna@gmail.com"
+=======
+                "Diagne",
+                "Yacine",
+                "785111836",
+                "diagneyacine201@gmail.com"
+>>>>>>> f358e15a0592a232b2535a583158cdf4e017f841
         );
 
         dao.ajouterClient(client);
