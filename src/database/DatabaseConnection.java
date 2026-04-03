@@ -20,8 +20,4 @@ public class DatabaseConnection {
             return null;
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> f358e15a0592a232b2535a583158cdf4e017f841
