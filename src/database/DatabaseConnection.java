@@ -12,7 +12,10 @@ public class DatabaseConnection {
 
     public static Connection getConnection() {
         try {
-            Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)
+            ;
+            
             System.out.println("Connexion réussie !");
             return conn;
         } catch (Exception e) {
@@ -20,8 +23,7 @@ public class DatabaseConnection {
             return null;
         }
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> f358e15a0592a232b2535a583158cdf4e017f841
+
+

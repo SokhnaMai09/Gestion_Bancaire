@@ -1,56 +1,50 @@
-<<<<<<< HEAD
-=======
+import java.sql.Connection;
 
->>>>>>> f358e15a0592a232b2535a583158cdf4e017f841
 import dao.ClientDAO;
+import dao.CompteDAO;
+import database.DatabaseConnection;
 import model.Client;
+import model.Compte;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        ClientDAO dao = new ClientDAO();
+        ClientDAO clientDAO = new ClientDAO();
 
-        // ===== 1. CREATION CLIENT =====
-        Client client = new Client(
+        // 1. Créer un client
+        Client client = new Client();
+        client.setNom("Sene");
+        client.setPrenom("Sokhna");
+        client.setTelephone("703047016");
+        client.setEmail("sokhna@gmail.com");
+
+        clientDAO.ajouterClient(client);
+        System.out.println("Client ajouté");
+
+        // 2. Créer un compte
+        Compte compte = new Compte(
                 0,
-<<<<<<< HEAD
-                "Sene",
-                "Sokhna Maimouna",
-                "703047016",
-                "sokhna@gmail.com"
-=======
-                "Diagne",
-                "Yacine",
-                "785111836",
-                "diagneyacine201@gmail.com"
->>>>>>> f358e15a0592a232b2535a583158cdf4e017f841
+                "SN10001",
+                75000,
+                "COURANT",
+                1 // id client existant
         );
 
-        dao.ajouterClient(client);
+        CompteDAO dao = new CompteDAO();
+        dao.ajouterCompte(compte);
 
-        // ===== 2. AFFICHAGE =====
-        System.out.println("Liste des clients :");
+        // 3. Tester connexion
+        Connection c = DatabaseConnection.getConnection();
 
-        dao.getAllClients().forEach(c ->
-                System.out.println(c.getNom())
-        );
+        if (c != null)
+            System.out.println("Connexion OK");
+        else
+            System.out.println("Connexion échouée");
 
-        // ===== 3. RECHERCHE =====
-        Client c = dao.getClientById(1);
-
-        if (c != null) {
-
-            // ===== 4. MODIFICATION =====
-            c.setNom("NouveauNom");
-            dao.modifierClient(c);
-
-            System.out.println("Client modifié !");
-        }
-
-        // ===== 5. SUPPRESSION =====
-        dao.supprimerClient(1);
-
-        System.out.println("Client supprimé !");
+        // 4. Opérations sur le compte
+        dao.deposer("SN10001", 5000);
+        dao.retirer("SN10001", 1000);
+        dao.afficherComptesClient(1);
     }
 }
