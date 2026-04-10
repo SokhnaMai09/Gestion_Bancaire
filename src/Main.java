@@ -2,6 +2,7 @@ import java.sql.Connection;
 
 import dao.ClientDAO;
 import dao.CompteDAO;
+import dao.OperationDAO;
 import database.DatabaseConnection;
 import model.Client;
 import model.Compte;
@@ -10,9 +11,9 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // 1. Créer un client
         ClientDAO clientDAO = new ClientDAO();
 
-        // 1. Créer un client
         Client client = new Client();
         client.setNom("Sene");
         client.setPrenom("Sokhna");
@@ -28,11 +29,11 @@ public class Main {
                 "SN10001",
                 75000,
                 "COURANT",
-                1 // id client existant
+                1
         );
 
-        CompteDAO dao = new CompteDAO();
-        dao.ajouterCompte(compte);
+        CompteDAO compteDAO = new CompteDAO();
+        compteDAO.ajouterCompte(compte);
 
         // 3. Tester connexion
         Connection c = DatabaseConnection.getConnection();
@@ -42,9 +43,12 @@ public class Main {
         else
             System.out.println("Connexion échouée");
 
-        // 4. Opérations sur le compte
-        dao.deposer("SN10001", 5000);
-        dao.retirer("SN10001", 1000);
-        dao.afficherComptesClient(1);
+        // 4. TA PARTIE (Operation)
+        OperationDAO operationDAO = new OperationDAO();
+
+        operationDAO.depot(1, 5000);
+        operationDAO.retrait(1, 1000);
+        operationDAO.virement(1, 2, 2000);
+        operationDAO.historique(1);
     }
 }
