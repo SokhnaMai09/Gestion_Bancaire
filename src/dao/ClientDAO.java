@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ClientDAO {
 
-    // AJOUTER CLIENT
+    
     public void ajouterClient(Client client) {
 
         String sql = "INSERT INTO client(nom, prenom, telephone, email) VALUES (?,?,?,?)";
@@ -30,7 +30,7 @@ public class ClientDAO {
         }
     }
 
-    // AFFICHER CLIENTS
+    
     public List<Client> getAllClients() {
 
         List<Client> clients = new ArrayList<>();

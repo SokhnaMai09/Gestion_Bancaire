@@ -9,9 +9,7 @@ import java.sql.ResultSet;
 
 public class CompteDAO {
 
-    // ===============================
-    // AJOUTER COMPTE
-    // ===============================
+  
     public void ajouterCompte(Compte compte) {
 
         try {
@@ -36,9 +34,7 @@ public class CompteDAO {
         }
     }
 
-    // ===============================
-    // RECHERCHER PAR NUMERO
-    // ===============================
+    
     public Compte rechercherParNumero(String numero) {
 
         Compte compte = null;
@@ -69,9 +65,7 @@ public class CompteDAO {
         return compte;
     }
 
-    // ===============================
-    // DEPOSER ARGENT
-    // ===============================
+   
     public void deposer(String numero, double montant) {
 
         try {
@@ -93,9 +87,7 @@ public class CompteDAO {
         }
     }
 
-    // ===============================
-    // RETIRER ARGENT
-    // ===============================
+    
     public void retirer(String numero, double montant) {
 
         try {
@@ -129,9 +121,7 @@ public class CompteDAO {
         }
     }
 
-    // ===============================
-    // AFFICHER COMPTES D’UN CLIENT
-    // ===============================
+    
     public void afficherComptesClient(int idClient) {
 
         try {

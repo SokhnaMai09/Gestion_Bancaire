@@ -37,7 +37,7 @@ public class Compte {
     }
 
     public void supprimerCompte(int i) {
-        // TODO Auto-generated method stub
+       
         throw new UnsupportedOperationException("Unimplemented method 'supprimerCompte'");
     }
 }
