@@ -13,7 +13,7 @@ public class Client {
 
     // constructeur complet
     public Client(int id, String nom, String prenom,
-                  String telephone, String email) {
+                String telephone, String email) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -36,8 +36,7 @@ public class Client {
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> f358e15a0592a232b2535a583158cdf4e017f841
+
+
